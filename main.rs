@@ -6,13 +6,13 @@ use tokio::time::{sleep, Duration};
 #[derive(Parser, Debug)]
 #[command(author, version, about)]
 struct Cli {
-    /// Lines per second
-    #[arg(short, long, default_value_t = 1)]
-    rate: u32,
-
     /// File to tail (optional)
     #[arg()]
     file: Option<String>,
+
+    /// Lines per second
+    #[arg(short, long, default_value_t = 1)]
+    rate: u32,
 }
 
 #[tokio::main]
