@@ -6,7 +6,6 @@ edition = "2024"
 readme = "README.md"
 homepage = "https://github.com/EightBitBoy/snl"
 repository = "https://github.com/EightBitBoy/snl"
-license = "MIT"
 license-file = "LICENSE.txt"
 
 
