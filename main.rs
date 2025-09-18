@@ -18,7 +18,6 @@ struct Cli {
 #[tokio::main]
 async fn main() -> io::Result<()> {
     let cli = Cli::parse();
-
     let delay = Duration::from_secs_f64(1.0 / cli.rate as f64);
 
     // Determine input source: stdin or file
@@ -30,17 +29,19 @@ async fn main() -> io::Result<()> {
         None => Box::new(io::stdin().lock()),
     };
 
-    let mut lines = reader.lines();
+    let mut reader = reader; // make mutable for read_line
+    let mut buf = String::new();
 
-    while let Some(line) = lines.next() {
-        match line {
-            Ok(l) => {
-                println!("{}", l);
-                sleep(delay).await;
-            }
-            Err(e) => eprintln!("Error reading line: {}", e),
+    loop {
+        buf.clear();
+        let bytes_read = reader.read_line(&mut buf)?;
+
+        if bytes_read > 0 {
+            print!("{}", buf); // buf already contains the newline
+            sleep(delay).await;
+        } else {
+            // No new data, wait a bit before retrying
+            sleep(Duration::from_millis(200)).await;
         }
     }
-
-    Ok(())
 }
