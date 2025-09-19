@@ -35,4 +35,6 @@ done
 
 
 
-git tag -a 0.1.0 -m "Release version 0.1.0"
+git tag -a 0.1.0 -m "Release version 0.1.0",
+
+cargo publish --dry-run --allow-dirty
