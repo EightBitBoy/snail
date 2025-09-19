@@ -1,4 +1,12 @@
-### Notes
+# Notes
+
+## Todo
+* Read about tokio
+* Add a nice description including examples
+* Improve the readme, embed a terminal demo
+* Add some tests
+
+## Random
 seq 1 20
 
 https://github.com/tokio-rs/tokio
