@@ -3,6 +3,9 @@
 
 Slow down the output of logs and other text streams in your terminal and make them easier to follow.
 
+## Installation
+* `cargo install snl`
+
 ## Usage
 `snl` is the right tool for you if you often view logs in real-time but the output is sometimes simply too fast to understand what is going on. With `snl` you can specify how many *lines per second* should appear on your termal.
 
