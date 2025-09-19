@@ -8,6 +8,7 @@ homepage = "https://github.com/EightBitBoy/snl"
 repository = "https://github.com/EightBitBoy/snl"
 license-file = "LICENSE.txt"
 keywords = ["cli", "tail", "tool", "log", "logging"]
+categories = ["command-line-interface", "command-line-utilities"]
 
 [dependencies]
 clap = { version = "4.5.47", features = ["derive"] }
