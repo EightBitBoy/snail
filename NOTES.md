@@ -32,3 +32,7 @@ while true; do
     date +"%Y-%m-%d %H:%M:%S.%3N" >> test.log
     sleep 0.1
 done
+
+
+
+git tag -a 0.1.0 -m "Release version 0.1.0"
