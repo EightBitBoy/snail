@@ -4,6 +4,7 @@
 Slow down the output of logs and other text streams in your terminal and make them easier to follow.
 
 ## Installation
+* The application is available at `crates.io`: [https://crates.io/crates/snl](https://crates.io/crates/snl)
 * `cargo install snl`
 
 ## Usage
