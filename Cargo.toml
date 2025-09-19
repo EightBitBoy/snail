@@ -1,6 +1,6 @@
 [package]
 name = "snl"
-description = "snl (snail) slows files down, like 'tail -f' but slower"
+description = "snl (snail) slows files down, think 'tail -f' but slower"
 version = "0.2.0"
 edition = "2024"
 readme = "README.md"

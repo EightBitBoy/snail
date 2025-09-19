@@ -5,6 +5,10 @@
 * Add a nice description including examples
 * Improve the readme, embed a terminal demo
 * Add some tests
+* Add author, https://docs.rs/clap/latest/clap/_derive/index.html
+* Allow using interval instead of rate
+
+
 
 ## Random
 seq 1 20
