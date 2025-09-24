@@ -8,7 +8,10 @@
 * Add author, https://docs.rs/clap/latest/clap/_derive/index.html
 * Allow using interval instead of rate
 
-
+## Release process
+* `cargo publish --dry-run --allow-dirty`
+* `git tag -a 0.2.0 -m "Release version 0.2.0"`
+* `cargo publish`
 
 ## Random
 seq 1 20
@@ -20,21 +23,10 @@ lines per second (--rate N)
 
 interval seconds (--interval X)
 
-
-
 seq 1 20 | cargo run -- --rate 1
-
-
-
 
 
 while true; do
     date +"%Y-%m-%d %H:%M:%S.%3N" >> test.log
     sleep 0.1
 done
-
-
-
-git tag -a 0.1.0 -m "Release version 0.1.0",
-
-cargo publish --dry-run --allow-dirty
