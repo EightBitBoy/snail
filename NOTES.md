@@ -1,11 +1,13 @@
 # Notes
 
 ## Todo
+* Add exit flag to stop the program if the input stops.
+* Colored output?
+* Line numbers
+* Timestamps
 * Read about tokio
-* Add a nice description including examples
 * Improve the readme, embed a terminal demo
 * Add some tests
-* Add author, https://docs.rs/clap/latest/clap/_derive/index.html
 * Allow using interval instead of rate
 
 ## Release process
