@@ -42,7 +42,7 @@ async fn main() -> io::Result<()> {
 
         if bytes_read > 0 {
             print!("{}", buf);
-            sleep(delay).await;
+            sleep_between_lines(delay).await;
         } else {
             wait_for_data().await;
         }
@@ -58,6 +58,10 @@ fn create_reader(file: &Option<String>) -> io::Result<Box<dyn BufRead>> {
         }
         None => Ok(Box::new(io::stdin().lock())),
     }
+}
+
+async fn sleep_between_lines(delay: Duration) {
+    sleep(delay).await;
 }
 
 async fn wait_for_data() {
