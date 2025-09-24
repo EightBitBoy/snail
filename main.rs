@@ -3,6 +3,8 @@ use std::fs::File;
 use std::io::{self, BufRead, BufReader};
 use tokio::time::{sleep, Duration};
 
+const WAIT_FOR_DATA_MILLIS: u64 = 200;
+
 #[derive(Parser, Debug)]
 #[command(
     version,
@@ -31,7 +33,7 @@ async fn main() -> io::Result<()> {
     let cli = Cli::parse();
     let delay = Duration::from_secs_f64(1.0 / cli.rate as f64);
 
-    let mut reader = get_reader(&cli.file)?;
+    let mut reader = create_reader(&cli.file)?;
     let mut buf = String::new();
 
     loop {
@@ -42,13 +44,13 @@ async fn main() -> io::Result<()> {
             print!("{}", buf);
             sleep(delay).await;
         } else {
-            wait_for_new_data().await;
+            wait_for_data().await;
         }
     }
 }
 
 /// Return a buffered reader for the specified file or stdin if no file is provided.
-fn get_reader(file: &Option<String>) -> io::Result<Box<dyn BufRead>> {
+fn create_reader(file: &Option<String>) -> io::Result<Box<dyn BufRead>> {
     match file {
         Some(path) => {
             let file = File::open(path)?;
@@ -58,6 +60,6 @@ fn get_reader(file: &Option<String>) -> io::Result<Box<dyn BufRead>> {
     }
 }
 
-async fn wait_for_new_data() {
-    sleep(Duration::from_millis(200)).await;
+async fn wait_for_data() {
+    sleep(Duration::from_millis(WAIT_FOR_DATA_MILLIS)).await;
 }
