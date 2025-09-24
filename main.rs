@@ -1,6 +1,6 @@
 use clap::Parser;
 use std::fs::File;
-use std::io::{self, BufRead, BufReader};
+use std::io::{self, BufRead, BufReader, Write};
 use tokio::time::{sleep, Duration};
 
 const WAIT_FOR_DATA_MILLIS: u64 = 200;
@@ -42,6 +42,8 @@ async fn main() -> io::Result<()> {
 
         if bytes_read > 0 {
             print!("{}", buf);
+            io::stdout().flush()?;
+
             sleep_between_lines(delay).await;
         } else {
             wait_for_data().await;
