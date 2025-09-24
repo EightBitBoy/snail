@@ -7,14 +7,21 @@ use tokio::time::{sleep, Duration};
 #[command(
     version,
     about,
-    long_about = "Tail a file or stdin at a specified rate."
+    after_help =
+"EXAMPLES:
+
+snl /var/log/application.log
+
+snl debug.log --rate 5
+
+tail -f /var/log/nginx/error.log | grep 'crit' | snail -r 1"
 )]
 struct Cli {
-    /// File to tail (optional)
+    /// File to output with a limited rate (optional, reads from stdin if not provided)
     #[arg()]
     file: Option<String>,
 
-    /// Lines per second
+    /// Rate of the output in lines per second
     #[arg(short, long, default_value_t = 2)]
     rate: u32,
 }
