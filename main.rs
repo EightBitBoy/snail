@@ -26,6 +26,10 @@ struct Cli {
     /// Rate of the output in lines per second
     #[arg(short, long, default_value_t = 2, value_parser = clap::value_parser!(u32).range(1..))]
     rate: u32,
+
+    /// Exit if the input stops (optional, continues to wait for data if not provided)
+    #[arg(short, long, default_value_t = false)]
+    exit: bool,
 }
 
 #[tokio::main]
