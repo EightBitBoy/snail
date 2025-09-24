@@ -24,7 +24,7 @@ struct Cli {
     file: Option<String>,
 
     /// Rate of the output in lines per second
-    #[arg(short, long, default_value_t = 2)]
+    #[arg(short, long, default_value_t = 2, value_parser = clap::value_parser!(u32).range(1..))]
     rate: u32,
 }
 
