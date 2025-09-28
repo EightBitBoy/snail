@@ -49,10 +49,14 @@ async fn main() -> io::Result<()> {
             io::stdout().flush()?;
 
             sleep_between_lines(delay).await;
+        } else if cli.exit {
+            break;
         } else {
             wait_for_data().await;
         }
     }
+
+    Ok(())
 }
 
 /// Return a buffered reader for the specified file or stdin if no file is provided.
