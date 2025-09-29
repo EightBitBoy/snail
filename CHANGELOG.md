@@ -1,6 +1,7 @@
 # Changelog
 
 # v0.0.3
+* Feature: Introduce "exit" flag to optionally stop the program if the input has no new data.
 * Improvement: Explicitly flush the output stream after each line.
 * Improvement: Accept only rate values greater than 0.
 
