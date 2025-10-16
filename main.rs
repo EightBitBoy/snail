@@ -1,7 +1,7 @@
 use clap::Parser;
 use std::fs::File;
 use std::io::{self, BufRead, BufReader, Write};
-use tokio::time::{sleep, Duration};
+use tokio::time::{Duration, sleep};
 
 const WAIT_FOR_DATA_MILLIS: u64 = 200;
 
@@ -9,8 +9,7 @@ const WAIT_FOR_DATA_MILLIS: u64 = 200;
 #[command(
     version,
     about,
-    after_help =
-"EXAMPLES:
+    after_help = "EXAMPLES:
 
 snl /var/log/application.log
 
